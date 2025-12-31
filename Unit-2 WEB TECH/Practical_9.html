@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Web Page</title>
+  <style>
+    /* Mobile-first base styles */
+    body {
+      margin: 0;
+      padding: 1em;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #3498db;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .container {
+      display: block;
+      padding: 1em;
+    }
+
+    .box {
+      background-color: white;
+      margin: 1em 0;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive layout for tablets and up */
+    @media (min-width: 600px) {
+      .container {
+        display: flex;
+        gap: 1em;
+      }
+
+      .box {
+        flex: 1;
+      }
+    }
+
+    /* Responsive layout for desktops and up */
+    @media (min-width: 900px) {
+      header {
+        font-size: 2em;
+      }
+
+      .box {
+        padding: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Responsive Design Demo</h1>
+  </header>
+
+  <div class="container">
+    <div class="box">
+      <h2>Mobile First</h2>
+      <p>This layout starts simple and adapts as screen size increases.</p>
+    </div>
+    <div class="box">
+      <h2>Flexible Units</h2>
+      <p>We use <code>em</code> and percentages for scalable spacing and sizing.</p>
+    </div>
+    <div class="box">
+      <h2>Media Queries</h2>
+      <p>Breakpoints at 600px and 900px adjust layout and typography.</p>
+    </div>
+  </div>
+
+</body>
+</html>

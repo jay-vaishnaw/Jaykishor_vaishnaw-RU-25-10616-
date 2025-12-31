@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Styling Demo</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: darkblue;
+      text-align: center;
+    }
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Inline CSS -->
+  <h1 style="color: green;">Welcome to My Styled Page</h1>
+
+  <p>This paragraph uses <span class="highlight">internal CSS</span> for styling.</p>
+
+  <p style="color: red; font-size: 18px;">This paragraph uses inline CSS.</p>
+
+  <p class="external-style">This paragraph will be styled using external CSS.</p>
+
+</body>
+</html>
