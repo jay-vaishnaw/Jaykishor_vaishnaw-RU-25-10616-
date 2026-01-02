@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Element Manipulation Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    #container {
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 300px;
+    }
+    .child {
+      margin: 5px 0;
+      padding: 5px;
+      background-color: lightyellow;
+    }
+  </style>
+</head>
+<body>
+  <h2>DOM Manipulation Demo</h2>
+  <div id="container">
+    <p class="child">I am an existing child node.</p>
+  </div>
+
+  <button onclick="addChild()">Append Child</button>
+  <button onclick="removeChild()">Remove Child</button>
+  <button onclick="modifyChild()">Modify Child</button>
+
+  <script>
+    function addChild() {
+      // Create a new element
+      let newElement = document.createElement("p");
+      newElement.className = "child";
+      newElement.innerHTML = "✨ I am a newly appended child!";
+      
+      // Append to container
+      document.getElementById("container").appendChild(newElement);
+    }
+
+    function removeChild() {
+      let container = document.getElementById("container");
+      if (container.lastChild) {
+        container.removeChild(container.lastChild);
+      }
+    }
+
+    function modifyChild() {
+      let container = document.getElementById("container");
+      let firstChild = container.querySelector(".child");
+      if (firstChild) {
+        firstChild.innerHTML = "🔄 First child has been modified!";
+        firstChild.style.backgroundColor = "lightblue";
+      }
+    }
+  </script>
+</body>
+</html>

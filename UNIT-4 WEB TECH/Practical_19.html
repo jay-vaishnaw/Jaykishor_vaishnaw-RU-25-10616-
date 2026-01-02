@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas Shapes Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 32px; }
+    #controls { margin-bottom: 12px; }
+    canvas { border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h2>Draw shapes and fill colors (canvas)</h2>
+
+  <div id="controls">
+    <button id="drawBtn">Draw Shapes</button>
+    <button id="clearBtn">Clear</button>
+  </div>
+
+  <canvas id="myCanvas" width="500" height="300"></canvas>
+
+  <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function drawShapes() {
+      // Rectangle
+      ctx.fillStyle = "#4CAF50"; // green
+      ctx.fillRect(30, 30, 120, 80);
+
+      // Circle
+      ctx.beginPath();
+      ctx.arc(250, 70, 40, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fillStyle = "#2196F3"; // blue
+      ctx.fill();
+
+      // Triangle
+      ctx.beginPath();
+      ctx.moveTo(380, 110);
+      ctx.lineTo(460, 30);
+      ctx.lineTo(420, 140);
+      ctx.closePath();
+      ctx.fillStyle = "#FF9800"; // orange
+      ctx.fill();
+
+      // Optional strokes for clarity
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#333";
+      ctx.strokeRect(30, 30, 120, 80);
+      ctx.beginPath();
+      ctx.arc(250, 70, 40, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(380, 110);
+      ctx.lineTo(460, 30);
+      ctx.lineTo(420, 140);
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    document.getElementById("drawBtn").addEventListener("click", drawShapes);
+    document.getElementById("clearBtn").addEventListener("click", clearCanvas);
+  </script>
+</body>
+</html>

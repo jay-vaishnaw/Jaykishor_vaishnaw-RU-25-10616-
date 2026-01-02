@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User-Defined Functions & Scope Demo</title>
+</head>
+<body>
+  <h2>JavaScript Functions and Scope Demo</h2>
+  <pre id="output"></pre>
+
+  <script>
+    let output = "";
+
+    // --- User-defined function ---
+    function greet(name) {
+      return "Hello, " + name + "!";
+    }
+
+    // Invoke the function
+    output += greet("Jay") + "\n\n";
+
+    // --- Scope demonstration ---
+    function scopeDemo() {
+      // var: function-scoped
+      var x = 10;
+      if (true) {
+        var x = 20; // same variable, overrides previous
+        output += "Inside if (var): x = " + x + "\n";
+      }
+      output += "Outside if (var): x = " + x + "\n\n";
+
+      // let: block-scoped
+      let y = 30;
+      if (true) {
+        let y = 40; // new variable, only inside block
+        output += "Inside if (let): y = " + y + "\n";
+      }
+      output += "Outside if (let): y = " + y + "\n\n";
+
+      // const: block-scoped, cannot be reassigned
+      const z = 50;
+      output += "Const z = " + z + "\n";
+      // Uncommenting the next line would throw an error:
+      // z = 60;
+    }
+
+    // Invoke scope demo
+    scopeDemo();
+
+    // Display results
+    document.getElementById("output").innerText = output;
+  </script>
+</body>
+</html>

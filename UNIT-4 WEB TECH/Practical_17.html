@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Listener Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    #box {
+      width: 200px; height: 200px;
+      background-color: lightgray;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <h2>Event Listener Demo</h2>
+  <div id="box">Hover or click me!</div>
+  
+  <button id="removeMouse">Remove Mouse Events</button>
+  <p>Type in the input box below:</p>
+  <input type="text" id="textInput" placeholder="Type something...">
+  
+  <pre id="output"></pre>
+
+  <script>
+    let box = document.getElementById("box");
+    let output = document.getElementById("output");
+    let input = document.getElementById("textInput");
+    let removeBtn = document.getElementById("removeMouse");
+
+    // --- Mouse Events ---
+    function mouseOverHandler() {
+      box.style.backgroundColor = "lightblue";
+      output.innerText += "Mouse entered box\n";
+    }
+
+    function clickHandler() {
+      box.style.backgroundColor = "lightgreen";
+      output.innerText += "Box clicked\n";
+    }
+
+    // Add event listeners
+    box.addEventListener("mouseover", mouseOverHandler);
+    box.addEventListener("click", clickHandler);
+
+    // Remove mouse events when button is clicked
+    removeBtn.addEventListener("click", function() {
+      box.removeEventListener("mouseover", mouseOverHandler);
+      box.removeEventListener("click", clickHandler);
+      output.innerText += "Mouse events removed\n";
+    });
+
+    // --- Keyboard Events ---
+    input.addEventListener("keydown", function(event) {
+      output.innerText += "Key pressed: " + event.key + "\n";
+    });
+
+    input.addEventListener("keyup", function(event) {
+      output.innerText += "Key released: " + event.key + "\n";
+    });
+  </script>
+</body>
+</html>
